@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="698.0" prefWidth="991.0" style="-fx-background-color: #9b9b9b;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.BackController">
+   <children>
+      <VBox prefHeight="698.0" prefWidth="290.0" style="-fx-background-color: #32527b;">
+         <children>
+            <Text layoutX="50.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Evenement" wrappingWidth="204.41883051395416">
+               <font>
+                  <Font name="Bell MT" size="39.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="50.0" right="50.0" top="50.0" />
+               </VBox.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nom ">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <TextField fx:id="sai_nom" promptText="nom" style="-fx-background-color: d8dffe3;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Text fx:id="nom_sai" fill="#ff0909" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="171.19997882843018" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="description">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <TextField fx:id="sai_description" promptText="description" style="-fx-background-color: d8dffe3;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Image ">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <TextField fx:id="sai_image" promptText="image_name" style="-fx-background-color: d8dffe3;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <TextField fx:id="sai_type" promptText="type" style="-fx-background-color: d8dffe3;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <DatePicker fx:id="sai_date" prefHeight="26.0" prefWidth="320.0" style="-fx-background-color: d8dffe3;" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Prix">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <TextField fx:id="sai_prix" promptText="prix" style="-fx-background-color: d8dffe3;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de place">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <TextField fx:id="sai_nbplace" promptText="nombre_plac" style="-fx-background-color: d8dffe3;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <TextField fx:id="sai_adresse" promptText="adresse" style="-fx-background-color: d8dffe3;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Etat">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <TextField fx:id="sai_etat" promptText="etat" style="-fx-background-color: d8dffe3;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Text>
+            <Button mnemonicParsing="false" onAction="#ajouter_ev" prefHeight="26.0" prefWidth="310.0" style="-fx-background-color: d8dffe3;" text="Ajouter" />
+            <Separator prefHeight="30.0" prefWidth="306.0" />
+            <Button mnemonicParsing="false" onAction="#modif_ev" prefHeight="26.0" prefWidth="310.0" style="-fx-background-color: d8dffe3;" text="Modifier" />
+         </children>
+      </VBox>
+      <Separator layoutX="301.0" layoutY="8.0" orientation="VERTICAL" prefHeight="690.0" prefWidth="15.0" />
+      <Separator layoutX="318.0" layoutY="8.0" orientation="VERTICAL" prefHeight="690.0" prefWidth="15.0" />
+      <TableView fx:id="tab_evnt" layoutX="326.0" layoutY="8.0" onMouseClicked="#select_ev" prefHeight="422.0" prefWidth="655.0" style="-fx-background-color: #9b9b9b;">
+        <columns>
+          <TableColumn fx:id="id_col" prefWidth="29.60003662109375" text="id " />
+          <TableColumn fx:id="nom_col" prefWidth="35.199951171875" text="nom" />
+            <TableColumn fx:id="description_col" prefWidth="75.0" text="description" />
+            <TableColumn fx:id="image_col" prefWidth="88.79998779296875" text="image_name" />
+            <TableColumn fx:id="type_col" prefWidth="41.5999755859375" text="type" />
+            <TableColumn fx:id="date_col" prefWidth="39.199951171875" text="date" />
+            <TableColumn fx:id="prix_col" prefWidth="48.0" text="prix" />
+            <TableColumn fx:id="place_col" prefWidth="98.39996337890625" text="nombre_place" />
+            <TableColumn fx:id="adresse_col" prefWidth="71.99993896484375" text="adresse" />
+            <TableColumn fx:id="etat_col" prefWidth="44.800048828125" text="etat" />
+            <TableColumn fx:id="delate_col" prefWidth="75.0" text="suprimer" />
+        </columns>
+      </TableView>
+      <ImageView fx:id="ImageViw" fitHeight="150.0" fitWidth="200.0" layoutX="326.0" layoutY="541.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="333.0" layoutY="492.0" mnemonicParsing="false" onAction="#UplodImage" prefHeight="26.0" prefWidth="189.0" style="-fx-background-color: d8dffe3;" text="Ajouterimage" />
+      <TableView fx:id="tab_tickts" layoutX="526.0" layoutY="484.0" prefHeight="214.0" prefWidth="232.0" style="-fx-background-color: #9b9b9b;">
+        <columns>
+          <TableColumn fx:id="prix_tcisk_col" prefWidth="75.0" text="prix" />
+          <TableColumn fx:id="quntiter_tickets_col" prefWidth="75.0" text="quantite" />
+            <TableColumn fx:id="type_tickest_col" prefWidth="75.0" text="type" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

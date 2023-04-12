@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="175.0" prefWidth="600.0" style="-fx-background-color: #c6ebd5;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.EventfrontController">
+   <children>
+      <ImageView fx:id="image_event" fitHeight="162.0" fitWidth="200.0" layoutY="6.0" onMouseClicked="#got_detailse" pickOnBounds="true" preserveRatio="true" />
+      <Text fx:id="id_event" layoutX="209.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="182.1181640625">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="nom_event" layoutX="209.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="182.1181640625">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="prix_event" layoutX="209.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="182.1181640625">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="desc_event" layoutX="208.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="182.1181640625">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

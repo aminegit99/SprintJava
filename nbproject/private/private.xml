@@ -3,7 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/THEOLDISBACK/Documents/NetBeansProjects/aminejava/src/aminejava/Aminejava.java</file>
+            <file>file:/C:/Users/hazem_xsx7382/Desktop/java%20projet/projetjava/src/entities/Evenement.java</file>
+            <file>file:/C:/Users/hazem_xsx7382/Desktop/java%20projet/projetjava/src/services/IEvenement.java</file>
+            <file>file:/C:/Users/hazem_xsx7382/Desktop/java%20projet/projetjava/src/services/Ticketservice.java</file>
+            <file>file:/C:/Users/hazem_xsx7382/Desktop/java%20projet/projetjava/src/entities/User.java</file>
+            <file>file:/C:/Users/hazem_xsx7382/Desktop/java%20projet/projetjava/src/test/test.java</file>
+            <file>file:/C:/Users/hazem_xsx7382/Desktop/java%20projet/projetjava/src/services/IAvis.java</file>
+            <file>file:/C:/Users/hazem_xsx7382/Desktop/java%20projet/projetjava/src/services/Avisservice.java</file>
+            <file>file:/C:/Users/hazem_xsx7382/Desktop/java%20projet/projetjava/src/entities/Avis.java</file>
+            <file>file:/C:/Users/hazem_xsx7382/Desktop/java%20projet/projetjava/src/entities/Ticket.java</file>
+            <file>file:/C:/Users/hazem_xsx7382/Desktop/java%20projet/projetjava/src/services/Evenementservice.java</file>
+            <file>file:/C:/Users/hazem_xsx7382/Desktop/java%20projet/projetjava/src/utils/MyDB.java</file>
+            <file>file:/C:/Users/hazem_xsx7382/Desktop/java%20projet/projetjava/src/services/ITicket.java</file>
         </group>
     </open-files>
 </project-private>
