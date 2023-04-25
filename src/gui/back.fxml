@@ -35,7 +35,10 @@
                   <Font size="14.0" />
                </font>
             </TextField>
-            <Text fx:id="nom_sai" fill="#ff0909" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="171.19997882843018" />
+            <Text fx:id="nom_sai" fill="#ff0909" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="171.19997882843018">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="description">
                <font>
                   <Font size="21.0" />
@@ -46,6 +49,10 @@
                   <Font size="14.0" />
                </font>
             </TextField>
+            <Text fx:id="description_saisir" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="170.93670272827148">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Image ">
                <font>
                   <Font size="21.0" />
@@ -56,6 +63,11 @@
                   <Font size="14.0" />
                </font>
             </TextField>
+            <Text fx:id="image_saisir" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="290.93671798706055">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type">
                <font>
                   <Font size="21.0" />
@@ -82,6 +94,12 @@
                   <Font size="14.0" />
                </font>
             </TextField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="297.33674240112305" />
+            <Text fx:id="prix_saisir" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="290.93671798706055">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de place">
                <font>
                   <Font size="21.0" />
@@ -102,6 +120,10 @@
                   <Font size="14.0" />
                </font>
             </TextField>
+            <Text fx:id="adresse_saisir" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="301.33674240112305">
+               <font>
+                  <Font size="18.0" />
+               </font></Text>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Etat">
                <font>
                   <Font size="21.0" />
@@ -138,6 +160,9 @@
             <TableColumn fx:id="etat_col" prefWidth="44.800048828125" text="etat" />
             <TableColumn fx:id="delate_col" prefWidth="75.0" text="suprimer" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
       <ImageView fx:id="ImageViw" fitHeight="150.0" fitWidth="200.0" layoutX="326.0" layoutY="541.0" pickOnBounds="true" preserveRatio="true" />
       <Button layoutX="333.0" layoutY="492.0" mnemonicParsing="false" onAction="#UplodImage" prefHeight="26.0" prefWidth="189.0" style="-fx-background-color: d8dffe3;" text="Ajouterimage" />

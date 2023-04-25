@@ -72,6 +72,7 @@ public boolean ajouterproduit(Evenement e) throws SQLException {
     System.out.println("Evenement updated");
     return true;  
     }
+    int e = 5 ;
 
     @Override
     public boolean suprimeproduit(Evenement e) throws SQLException {
@@ -141,6 +142,69 @@ public boolean updateNombrePlace(int id, int nombrePlace) throws SQLException {
     return rowsUpdated > 0;
 }
 
+    @Override
+    public List<Evenement> chercher(String msg) throws SQLException {
+ 
+     List<Evenement> evenements = new ArrayList<>();
+
+
+        String request = "SELECT * FROM evenement WHERE nom LIKE ? OR id LIKE ?";
+        PreparedStatement pst = cnx.prepareStatement(request);
+        pst.setString(1, msg);
+         pst.setString(2, msg);
+        
+        ResultSet rs = pst.executeQuery();
+
+        while (rs.next()) {
+            Evenement e = new Evenement();
+            e.setId(rs.getInt("id"));
+            e.setNom(rs.getString("nom"));
+            e.setDescription(rs.getString("description"));
+            e.setImageName(rs.getString("image_name"));
+            e.setType(rs.getString("type"));
+            e.setPrix(rs.getInt("prix"));
+            e.setNombrePlace(rs.getInt("nombre_place"));
+            e.setAdresse(rs.getString("adresse"));
+            e.setEtat(rs.getBoolean("etat"));
+            evenements.add(e);
+        }
+ 
+    
+
+    return evenements;
+   
+    }
+
+    @Override
+    public List<Evenement> trier() throws SQLException {
+             List<Evenement> evenements = new ArrayList<>();
+
+
+        String request = "SELECT * FROM evenement ORDER BY nom DESC";
+        PreparedStatement pst = cnx.prepareStatement(request);
+     
+        
+        ResultSet rs = pst.executeQuery();
+
+        while (rs.next()) {
+            Evenement e = new Evenement();
+            e.setId(rs.getInt("id"));
+            e.setNom(rs.getString("nom"));
+            e.setDescription(rs.getString("description"));
+            e.setImageName(rs.getString("image_name"));
+            e.setType(rs.getString("type"));
+            e.setPrix(rs.getInt("prix"));
+            e.setNombrePlace(rs.getInt("nombre_place"));
+            e.setAdresse(rs.getString("adresse"));
+            e.setEtat(rs.getBoolean("etat"));
+            evenements.add(e);
+        }
+ 
+    
+
+    return evenements;
+        
+    }
 
     
 }

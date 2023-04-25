@@ -84,6 +84,7 @@ Evenementservice es = new Evenementservice();
                 image_event.setImage(img);
 
     }
+            
 
     @FXML
     private void ajouter_ticket(ActionEvent event) throws SQLException {
@@ -97,8 +98,8 @@ Evenementservice es = new Evenementservice();
         ticket.setPrix(Integer.parseInt(prix_event.getText()));
         ticket.setQuantite(Integer.parseInt(sai_tickts_quantite.getText()));
         ticket.setType(sai_tickts_prix.getText());
-        if(Integer.parseInt(nb_event.getText())==0){
-            invalid.setText("nombre de place = 0");
+        if(e.getNombrePlace()< Integer.parseInt(sai_tickts_quantite.getText())){
+            invalid.setText("nombre de place est limité");
 
              sai_tickts_prix.setText("");
   

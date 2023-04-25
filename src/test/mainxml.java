@@ -30,7 +30,7 @@ public class mainxml extends Application {
             Parent root = loader.load();
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
-            primaryStage.setTitle("xchnagex");
+            primaryStage.setTitle("TunRec");
             primaryStage.show();
 
         } catch (IOException ex) {

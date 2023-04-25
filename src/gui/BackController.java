@@ -15,6 +15,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
@@ -105,9 +106,17 @@ Ticketservice ts = new Ticketservice();
     private TableColumn<Ticket, String> type_tickest_col;
     @FXML
     private Text nom_sai;
+    @FXML
+    private Text description_saisir;
+    @FXML
+    private Text image_saisir;
+    @FXML
+    private Text prix_saisir;
+    @FXML
+    private Text adresse_saisir;
     /**
      * Initializes the controller class.
-     */
+     */ 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -130,14 +139,33 @@ Ticketservice ts = new Ticketservice();
             System.out.println("error" + ex.getMessage());
         }
         // TODO
-    }    
+    } 
+   
+
+
 
     @FXML
     private void ajouter_ev(ActionEvent event) {
          try {
+              String adresseUtilisateur = sai_adresse.getText().trim();
 if(sai_nom.getText().length()==0)
-{nom_sai.setText("invalide nom");}
+{nom_sai.setText("invalide nom");}else if(sai_description.getText().length()==0){description_saisir.setText("description ivalide ");}
+else if(sai_image.getText().length()==0){image_saisir.setText("image ivalide ");}
+else if (!sai_prix.getText().matches("[0-9]+")) {
+    prix_saisir.setText("Le prix ne peut contenir que des nombres");
+}
+
+else if (adresseUtilisateur.length() == 0 || !adresseUtilisateur.matches(".*\\b(Tunis|Ariana|Ben Arous|Mannouba|Bizerte|Nabeul|Zaghouan|Sousse|Monastir|Mahdia|Sfax|Kairouan|Kasserine|Sidi Bouzid|Gabès|Medenine|Tataouine|Gafsa|Tozeur|Kebili)\\b.*")) {
+   
+    adresse_saisir.setText("L'adresse doit contenir une ville de Tunisie valide");
+}
 else{
+     nom_sai.setText("");
+            description_saisir.setText("");
+           image_saisir.setText("");
+           adresse_saisir.setText("");
+           prix_saisir.setText("");
+    
             Evenement p = new Evenement();
             p.setNom(sai_nom.getText());
                     p.setDescription(sai_description.getText());
@@ -219,7 +247,7 @@ else{
     }
 
     @FXML
-    private void select_ev(MouseEvent event) throws SQLException {
+    private void select_ev(MouseEvent event) throws SQLException, MalformedURLException {
            index =tab_evnt.getSelectionModel().getSelectedIndex();
         if (index < 0) {
     return;
@@ -237,9 +265,11 @@ sai_type.setText(type_col.getCellData(index).toString());
 sai_adresse.setText(adresse_col.getCellData(index).toString());
 sai_etat.setText(etat_col.getCellData(index).toString());
 String path = sai_image.getText();
-               File file=new File(path);
-              Image img = new Image(file.toURI().toString());
-                ImageViw.setImage(img);
+             File file = new File("C:\\\\Users\\\\hazem_xsx7382\\\\Documents\\\\GitHub\\\\gestion_recyclage\\\\public\\\\images\\\\" + image_col.getCellData(index).toString());
+String fileUrl = file.toURI().toURL().toString();
+Image img = new Image(fileUrl);
+              System.out.println(img);
+              ImageViw.setImage(img);
                 
         
                            List<Ticket> Tickets = ts.getTicketsByEventId(id_col.getCellData(index));
@@ -290,6 +320,7 @@ String path = sai_image.getText();
            sai_adresse.setText("");
            sai_etat.setText("");
            
+           
 
 }
  @FXML
@@ -303,10 +334,13 @@ String path = sai_image.getText();
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
         File file = fileChooser.showOpenDialog(null);
-        String DBPath = "C:\\\\xampp\\\\htdocs\\\\imageP\\\\"  + x + ".jpg";
+        String DBPath = "" + x + ".jpg";
+        String imagePath = "C:\\Users\\hazem_xsx7382\\Documents\\GitHub\\gestion_recyclage\\public\\images\\" + DBPath;
+
+
         if (file != null) {
             FileInputStream Fsource = new FileInputStream(file.getAbsolutePath());
-            FileOutputStream Fdestination = new FileOutputStream(DBPath);
+            FileOutputStream Fdestination = new FileOutputStream(imagePath);
             BufferedInputStream bin = new BufferedInputStream(Fsource);
             BufferedOutputStream bou = new BufferedOutputStream(Fdestination);
             System.out.println(file.getAbsoluteFile());

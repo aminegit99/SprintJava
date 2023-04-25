@@ -19,5 +19,9 @@ public interface IEvenement {
         public boolean updateproduit(Evenement e)throws SQLException;
     public boolean suprimeproduit(Evenement e)throws SQLException;
     public List<Evenement> getAll()throws SQLException;
+    public List<Evenement> chercher(String msg)throws SQLException;
+    public List<Evenement> trier()throws SQLException;
+
+    
     
 }

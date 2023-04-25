@@ -55,7 +55,8 @@ public class test {
 //System.out.println(ts.getAll());
 //ts.suprimeproduit(ticket);
 //es.updateNombrePlace(57, 100);
-System.out.println(ts.getTicketsByEventId(57));
+System.out.println(es.chercher("mootaz"));
+
 
 
 
