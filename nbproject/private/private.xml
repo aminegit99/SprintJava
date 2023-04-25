@@ -3,16 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/amine/Desktop/aminejava2/src/aminejava/Aminejava.java</file>
-            <file>file:/C:/Users/amine/Desktop/aminejava2/src/edu/devapps/Controller/StatisticController.java</file>
-            <file>file:/C:/Users/amine/Desktop/aminejava2/src/edu/devapps/services/TwilloService.java</file>
-            <file>file:/C:/Users/amine/Desktop/aminejava2/src/edu/devapps/Controller/ajouterdechetController.java</file>
-            <file>file:/C:/Users/amine/Desktop/aminejava2/src/edu/devapps/Controller/ajouterbacController.java</file>
-            <file>file:/C:/Users/amine/Desktop/aminejava2/src/edu/devapps/Controller/ajouterdechetfrontController.java</file>
-            <file>file:/C:/Users/amine/Desktop/aminejava2/src/edu/devapps/Controller/bacviewController.java</file>
-            <file>file:/C:/Users/amine/Desktop/aminejava2/src/edu/devapps/services/BacService.java</file>
-            <file>file:/C:/Users/amine/Desktop/aminejava2/src/edu/devapps/services/Mail.java</file>
-            <file>file:/C:/Users/amine/Desktop/aminejava2/src/utilities/MaConnexion.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/pidevJavaApp/src/gui/Dashboard.fxml</file>
+            <file>file:/C:/Users/ASUS/Desktop/pidevJavaApp/src/gui/PidevJavaApp.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/pidevJavaApp/src/gui/AjoutDonController.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/pidevJavaApp/src/gui/dashboard.css</file>
+            <file>file:/C:/Users/ASUS/Desktop/pidevJavaApp/src/entities/CrudCharite.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/pidevJavaApp/src/services/DonService.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/pidevJavaApp/src/entities/Don.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/pidevJavaApp/src/gui/ListDonController.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/pidevJavaApp/src/services/ChariteService.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/pidevJavaApp/src/gui/StatistiquesController.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/pidevJavaApp/src/gui/DashboardController.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/pidevJavaApp/src/utils/MyDB.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/pidevJavaApp/src/gui/ajoutCharite.fxml</file>
+            <file>file:/C:/Users/ASUS/Desktop/pidevJavaApp/src/entities/Charite.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/pidevJavaApp/src/gui/ajoutDon.fxml</file>
+            <file>file:/C:/Users/ASUS/Desktop/pidevJavaApp/src/gui/AjoutChariteController.java</file>
+            <file>file:/C:/Users/ASUS/Desktop/pidevJavaApp/src/entities/CrudDon.java</file>
         </group>
     </open-files>
 </project-private>
