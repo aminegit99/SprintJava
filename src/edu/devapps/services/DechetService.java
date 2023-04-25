@@ -104,4 +104,26 @@ public class DechetService {
         }
        
 }
+    
+     public int statistic(int id) {
+        //var
+        
+       int i=0;
+        List<Dechet> dechets =new ArrayList<>();
+        //requette
+        String req ="SELECT SUM(quantite) as nb from dechet WHERE id_bac_id="+id;
+          try {
+              Statement st = cnx.createStatement();
+              ResultSet rs = st.executeQuery(req);
+              while (rs.next()){
+             i= rs.getInt(1);
+              }
+          } catch (SQLException ex) {
+              }
+    
+        return  i;
+
+    
+       
+    }
 }

@@ -7,6 +7,7 @@ package edu.devapps.Controller;
 
 import edu.devapps.entity.Bac;
 import edu.devapps.services.BacService;
+import edu.devapps.services.TwilloService;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -123,6 +124,7 @@ public class ajouterbacController implements Initializable {
                             
                        
           c.ajouterbac(new Bac(1,ref.getText(), adresse.getText(), cod,cap,etat1));
+                                TwilloService.sendSms("+21629583883", "new  bac has been adeed take a look");
                 Alert a = new Alert(Alert.AlertType.INFORMATION, "bac  ajouter avec  success");
                 a.show();
                             anchorme.setVisible(false);

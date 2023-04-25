@@ -27,8 +27,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -71,16 +73,49 @@ public class bacviewController implements Initializable {
       private List<Bac> bacs = new ArrayList<>();
     private Image image;
     private MyListener myListener;
+    @FXML
+    private TextField rechercher;
+    
+    
+    
+      
     
     
     
     
     
+     private List<Bac> getDatasearch(String se) throws SQLException {
+      
+            List<Bac> sponsors = new ArrayList<>();
+         BacService s = new BacService();
+        Bac bac1;
+
+        for (int i = 0; i < s.rechercher(se).size(); i++) {
+            Bac get = s.rechercher(se).get(i);
+            
+            
+            bac1 = new Bac();
+            bac1.setId(get.getId());
+            bac1.setRef(get.getRef());
+            bac1.setAdresse(get.getAdresse());
+            bac1.setCodepostal(get.getCodepostal());
+            bac1.setCapacite(get.getCapacite());
+            bac1.setEtat(get.getEtat());
+           
+        
+           
+            
+         
+            sponsors.add(bac1);
+        }
     
-    
+
+      
+        return sponsors;
+    }
      private List<Bac> getData() throws SQLException {
       
-            List<Bac> baccs = new ArrayList<>();
+            List<Bac> sponsors = new ArrayList<>();
          BacService s = new BacService();
         Bac bac1;
 
@@ -100,12 +135,12 @@ public class bacviewController implements Initializable {
            
             
          
-            baccs.add(bac1);
+            sponsors.add(bac1);
         }
     
 
       
-        return baccs;
+        return sponsors;
     }
 
     private void setChosenCamping(Bac bac) {
@@ -282,6 +317,80 @@ public class bacviewController implements Initializable {
      FXMLLoader load = new FXMLLoader(getClass().getResource("/edu/devapps/Interface/dechetview.fxml"));
                            Parent root =load.load();
                            dechetviewController c2=  load.getController();
+                           Scene ss= new Scene(root);
+                           Stage se= new Stage();
+                           se=(Stage)((Node)event.getSource()).getScene().getWindow();
+                           se.setScene(ss);
+                           se.show();
+    }
+
+    @FXML
+    private void search(KeyEvent event) throws SQLException {
+        grid.getChildren().clear();
+        bacs.clear();
+            bacs.addAll(getDatasearch(rechercher.getText()));
+        if (bacs.size() > 0) {
+            setChosenCamping(bacs.get(0));
+            myListener = new MyListener() {
+           
+
+            
+
+          
+
+                @Override
+                public void onClickListener(Bac Bac) {
+                      setChosenCamping(Bac);
+                }
+
+                @Override
+                public void onClickListener(Categorie Categorie) {
+                }
+
+                @Override
+                public void onClickListener(Dechet Dechet) {
+                }
+            };
+        }
+        int column = 0;
+        int row = 1;
+        try {
+            for (int i = 0; i < bacs.size(); i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/edu/devapps/Interface/onebacview.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                onebacviewviewController onebacviewviewController = fxmlLoader.getController();
+                onebacviewviewController.setData(bacs.get(i),myListener);
+
+                if (column == 2) {
+                    column = 0;
+                    row++;
+                }
+
+                grid.add(anchorPane, column++, row); //(child,column,row)
+                //set grid width
+                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxWidth(Region.USE_PREF_SIZE);
+
+                //set grid height
+                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+                GridPane.setMargin(anchorPane, new Insets(10));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void gotostatistic(ActionEvent event) throws IOException {
+         FXMLLoader load = new FXMLLoader(getClass().getResource("/edu/devapps/Interface/statistic.fxml"));
+                           Parent root =load.load();
+                           StatisticController c2=  load.getController();
                            Scene ss= new Scene(root);
                            Stage se= new Stage();
                            se=(Stage)((Node)event.getSource()).getScene().getWindow();

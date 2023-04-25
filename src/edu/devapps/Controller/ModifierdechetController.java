@@ -79,7 +79,7 @@ public class ModifierdechetController implements Initializable {
               
         DechetService s = new DechetService();
           s.modifierdechet(new Dechet(dechet.getId(), quantitee, dechet.getDate(),dechet.getIdcat(),dechet.getIdbac()));
-                        Alert a = new Alert(Alert.AlertType.INFORMATION, "votre déchets est modifié  ");
+                        Alert a = new Alert(Alert.AlertType.INFORMATION, "votre dechet est modifier ");
                         a.show();
         
                           anchorme.setVisible(false);

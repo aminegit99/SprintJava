@@ -76,7 +76,7 @@ public class ajoutercategorieController implements Initializable {
                     
                 
           c.ajoutercategorie(new Categorie(1,nom.getText(), description.getText()));
-                Alert a = new Alert(Alert.AlertType.INFORMATION, "Catégorie ajouteé avec  success");
+                Alert a = new Alert(Alert.AlertType.INFORMATION, "categorie ajouter avec  success");
                 a.show();
                             anchorme.setVisible(false);
         

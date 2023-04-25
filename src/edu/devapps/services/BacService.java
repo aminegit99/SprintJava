@@ -105,4 +105,29 @@ public class BacService {
         }
        
 }
+    
+    
+    
+       public List<Bac> rechercher(String s) {
+        //var
+        
+       
+        List<Bac> bacs =new ArrayList<>();
+        //requette
+        String req ="SELECT * FROM bac where ref LIKE '%"+s+"%' OR adresse  LIKE  '%"+s+"%' OR codepostal LIKE  '%"+s+"%' OR capacite LIKE  '%"+s+"%' OR etat LIKE '%"+s+"%'";
+          try {
+              Statement st = cnx.createStatement();
+              ResultSet rs = st.executeQuery(req);
+              while (rs.next()){
+                  bacs.add(new Bac(rs.getInt(1), rs.getString(2),rs.getString(3) ,rs.getInt(4), rs.getInt(5), rs.getInt(6)));
+              }
+          } catch (SQLException ex) {
+              }
+    
+        return bacs;
+
+    
+       
+    }
+    
 }

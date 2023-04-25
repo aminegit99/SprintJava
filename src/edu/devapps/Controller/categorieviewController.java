@@ -62,13 +62,14 @@ public class categorieviewController implements Initializable {
     @FXML
     private AnchorPane anchorforedit;
   Categorie currentat;
+   Bac bac;
      private Parent fxml;
       private List<Categorie> categories = new ArrayList<>();
     private Image image;
     private MyListener myListener;
     @FXML
     private HBox hboxcamping1;
-    Bac bac;
+   
     @FXML
     private Button buttondechet;
     

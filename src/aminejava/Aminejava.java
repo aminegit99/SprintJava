@@ -24,8 +24,8 @@ public class Aminejava extends Application {
     
     @Override
     public void start(Stage primaryStage) throws IOException {
-                    Parent root = FXMLLoader.load(getClass().getResource("/edu/devapps/Interface/categorieview.fxml"));
-        primaryStage.setTitle("Codinteam");
+                    Parent root = FXMLLoader.load(getClass().getResource("/edu/devapps/Interface/bacview.fxml"));
+        primaryStage.setTitle("campyy");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }

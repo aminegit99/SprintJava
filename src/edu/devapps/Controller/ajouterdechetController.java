@@ -9,6 +9,7 @@ import edu.devapps.entity.Bac;
 import edu.devapps.entity.Categorie;
 import edu.devapps.entity.Dechet;
 import edu.devapps.services.DechetService;
+import edu.devapps.services.Mail;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -62,7 +63,7 @@ Categorie thiscategorie;
     }
 
     @FXML
-    private void ajouterdechet(ActionEvent event) throws IOException {
+    private void ajouterdechet(ActionEvent event) throws IOException, Exception {
    
                 DechetService s = new DechetService();
                 
@@ -85,6 +86,7 @@ Categorie thiscategorie;
                
                     int q= Integer.valueOf(quantite.getText());
         s.ajouterdechet(new Dechet(1, q, new Date(199993010),thiscategorie.getId(),thisbac.getId()));
+                   Mail.sendMail("medamine.abidi@esprit.tn", 0);
                         Alert a = new Alert(Alert.AlertType.INFORMATION, "votre dechet est ajouter avec success ");
                         a.show();
         
