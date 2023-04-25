@@ -66,7 +66,7 @@ public class inscriptionController implements Initializable {
     TilePane r = new TilePane();
     @FXML
     private ChoiceBox<String> role;
-    String st[] = {"Coach", "Client"};
+    String st[] = {"Collector", "Client"};
     ObservableList<String> list = FXCollections.observableArrayList(st);
     @FXML
     private JFXButton insert_image;
@@ -109,7 +109,7 @@ String res="nodata";
 
     System.out.println("Selection made: [" + selectedIndex + "] " + selectedItem);
     System.out.println("   ChoiceBox.getValue(): " + role.getValue());
-    if (role.getValue() == "Coach"){
+    if (role.getValue() == "Collector"){
             metier.setOpacity(1);
                 domaine.setOpacity(0);
 
@@ -198,7 +198,7 @@ String res="nodata";
             alert.show();
            
         }
-  if ( value =="Coach" ){
+  if ( value =="Collector" ){
    String ametier = metier.getText() ;
          if (ametier.isEmpty()){
             

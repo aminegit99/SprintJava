@@ -74,7 +74,7 @@ User ua = new User();
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/GUI/inscription.fxml"));
             Stage stage = new Stage(StageStyle.DECORATED);
-            stage.setTitle("Cyber'sARK");
+            stage.setTitle("khedma");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException ex) {
@@ -87,7 +87,7 @@ User ua = new User();
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/GUI/forgottenPass.fxml"));
             Stage stage = new Stage(StageStyle.DECORATED);
-            stage.setTitle("Cyber'sARK");
+            stage.setTitle("khedma");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException ex) {
@@ -118,7 +118,7 @@ User ua = new User();
             alert.setContentText("email ou mot de passe incorrect");
             alert.show();
         }
-        if (su.validate(mail, pswd) == true ) {
+        if (su.validate(mail, pswd) == true) {
             try {
                 SingleMail smail = SingleMail.getInstance();
                 smail.setMail(mail);
@@ -132,7 +132,7 @@ User ua = new User();
                 //System.out.println(Globals.currentUser);
                 Parent root = FXMLLoader.load(getClass().getResource("/GUI/Front" + role + ".fxml"));
                 Stage stage = new Stage(StageStyle.DECORATED);
-                stage.setTitle("Cyber'sARK");
+                stage.setTitle("khedma");
                 
                 stage.setScene(new Scene(root));
                 stage.show();
