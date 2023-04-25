@@ -307,7 +307,7 @@ public class bacviewController implements Initializable {
                            Stage se= new Stage();
                            se=(Stage)((Node)event.getSource()).getScene().getWindow();
                            se.setScene(ss);
-                           se.show();
+                           
     
     }
 
