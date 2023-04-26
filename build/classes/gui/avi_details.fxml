@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="179.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Avi_detailsController">
+   <children>
+      <Text fx:id="id_user" layoutX="7.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="121.33670043945312">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="avi_cuntn" layoutX="7.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="121.33670043945312">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fx:id="id_event" layoutX="7.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="121.33670043945312">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

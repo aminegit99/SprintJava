@@ -21,6 +21,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import services.Evenementservice;
 import services.Ticketservice;
+import utils.SmsAPI;
 
 /**
  * FXML Controller class
@@ -105,13 +106,14 @@ Evenementservice es = new Evenementservice();
   
           sai_tickts_quantite.setText("");
         
-        }else{                ts.ajouterproduit(ticket);
+        }else{        ts.ajouterproduit(ticket);
       
         es.updateNombrePlace(a,b);
                      sai_tickts_prix.setText("");
                      
          nb_event.setText(String.valueOf(b));
-          sai_tickts_quantite.setText("");}
+          sai_tickts_quantite.setText("");
+        SmsAPI.send("+21699195169", "votre achat de billet a été effectué avec succès");}
 
         
     }

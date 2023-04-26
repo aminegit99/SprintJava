@@ -11,6 +11,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -46,7 +49,8 @@ Evenementservice es = new Evenementservice();
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
+        
     }    
                   public void setEvenement(Evenement e) {
         
@@ -60,18 +64,30 @@ Evenementservice es = new Evenementservice();
               Image img = new Image(file.toURI().toString());
                 image_event.setImage(img);
         // TODO
+        
     }
+                          
+    
+    
+    
+                 
 
     @FXML
     private void got_detailse(MouseEvent event) throws SQLException {
                                 try {
-                            
+                              
                             
                   FXMLLoader loader = new FXMLLoader(getClass().getResource("event_details.fxml"));
         Parent root = loader.load();
+
+        
           Event_detailsController destController = loader.getController();
 //          destController.prodredcu(ps.selectProduitById(ps.getProductIdByName(nomProduirLabel.getText())));
+       
           Evenement e = es.getEventById(Integer.parseInt(id_event.getText()));
+         
+            
+                            
          destController.descriptiondata(e);
 
         
@@ -83,5 +99,28 @@ Evenementservice es = new Evenementservice();
         } catch (IOException ex) {
             System.out.println("error" + ex.getMessage());
         }
+    }
+
+    @FXML
+    private void ajouter_avis(ActionEvent event) throws SQLException {
+                                        try {
+                                            Evenement e = es.getEventById(Integer.parseInt(id_event.getText()));
+                            
+                            
+                  FXMLLoader loader = new FXMLLoader(getClass().getResource("avisfxml.fxml"));
+        Parent root = loader.load();
+                        AvisfxmlController dedstController = loader.getController();
+                            
+         dedstController.event_data(e);
+
+                    Scene sence = new Scene(root);
+                    Stage stage = new Stage();
+                    stage.setScene(sence);
+                    stage.show();
+            
+        } catch (IOException ex) {
+            System.out.println("error" + ex.getMessage());
+        }
+
     }
 }

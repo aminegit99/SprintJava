@@ -31,7 +31,7 @@ public class Avisservice implements IAvis{
 
     @Override
     public boolean ajouteAvis(Avis p) throws SQLException {
-    String insertQuery = "INSERT INTO avis (evenement_id, user_id, contenu) VALUES (?, ?, ?)";
+    String insertQuery = "INSERT INTO avis (evenement_id,user_id,contenu) VALUES (?, ?, ?)";
     PreparedStatement insertStmt = cnx.prepareStatement(insertQuery);
     insertStmt.setInt(1, p.getEvenementId().getId());
     insertStmt.setInt(2, p.getUserId().getId());
@@ -100,6 +100,30 @@ List<Avis> avisList = new ArrayList<>();
     }
     return avisList;
     }
+public List<Avis> getAvisList(int eventId) throws SQLException {
+    List<Avis> avisList = new ArrayList<>();
+    String request = "SELECT * FROM avis INNER JOIN user ON avis.user_id=user.id WHERE evenement_id = ?";
+    PreparedStatement pst = cnx.prepareStatement(request);
+    pst.setInt(1, eventId);
+    ResultSet rs = pst.executeQuery();
+    while (rs.next()) {
+        Evenement evenement = new Evenement(eventId);
+        User user = new User();
+        user.setId(rs.getInt("id"));
+        user.setName(rs.getString("name"));
+        Avis avis = new Avis();
+        avis.setId(rs.getInt("id"));
+        avis.setEvenementId(evenement);
+        avis.setUserId(user);
+        avis.setContenu(rs.getString("contenu"));
+        // set other fields of avis
+        avisList.add(avis);
+    }
+    return avisList;
+}
+
+
+    
 
    
     

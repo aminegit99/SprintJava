@@ -5,7 +5,11 @@
  */
 package services;
 
+import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
 import entities.Evenement;
+import entities.Ticket;
+import entities.User;
+import entities.mail;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,6 +21,7 @@ import static java.time.temporal.TemporalQueries.localDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import utils.MyDB;
 
 /**
@@ -205,6 +210,74 @@ public boolean updateNombrePlace(int id, int nombrePlace) throws SQLException {
     return evenements;
         
     }
+
+   
+public boolean ticketGagnate() throws SQLException, MessagingException, javax.mail.MessagingException {
+    String request = "SELECT * FROM evenement WHERE nombre_place = 0 AND etat = 0";
+    PreparedStatement pst = cnx.prepareStatement(request);
+    ResultSet rs = pst.executeQuery();
+    
+    while (rs.next()) {
+        int eventId = rs.getInt("id");
+        
+        String requestt = "SELECT * FROM ticket JOIN user ON ticket.ticket_id = user.id WHERE ticket.evenement_id = ? AND ticket.status = 0";
+        PreparedStatement pstt = cnx.prepareStatement(requestt);
+        pstt.setInt(1, eventId);
+        ResultSet rss = pstt.executeQuery();
+        
+        List<Ticket> tickets = new ArrayList<>();
+        while (rss.next()) {
+            Ticket t = new Ticket();
+            t.setId(rss.getInt("id"));
+            t.setPrix(rss.getInt("prix"));
+            t.setType(rss.getString("type"));
+            t.setQuantite(rss.getInt("quantite"));
+            t.setCreatedAt(rss.getTimestamp("created_at").toLocalDateTime());
+            t.setStatus(rss.getBoolean("status"));
+            User u = new User();
+            u.setId(rss.getInt("user.id"));
+            u.setName(rss.getString("user.name"));
+           
+            u.setEmail(rss.getString("user.email"));
+            t.setTicketId(u);
+            tickets.add(t);
+        }
+        
+        if (tickets.size() > 0) {
+            // Select a random winning ticket from the list of tickets
+            int randomIndex = (int) (Math.random() * tickets.size());
+            Ticket winningTicket = tickets.get(randomIndex);
+            
+            // Update the status of the winning ticket to indicate that it has won
+            String updateRequest = "UPDATE ticket SET status = 1 WHERE id = ?";
+            PreparedStatement updatePst = cnx.prepareStatement(updateRequest);
+            updatePst.setInt(1, winningTicket.getId());
+            updatePst.executeUpdate();
+            
+            // Update the etat field in the Evenement table to indicate that the event has been processed
+            String updateEventRequest = "UPDATE evenement SET etat = 1 WHERE id = ?";
+            PreparedStatement updateEventPst = cnx.prepareStatement(updateEventRequest);
+            updateEventPst.setInt(1, eventId);
+            updateEventPst.executeUpdate();
+            
+            // Get the e-mail address of the user associated with the winning ticket
+            String getEmailRequest = "SELECT email FROM user WHERE id = ?";
+            PreparedStatement selectEmailPst = cnx.prepareStatement(getEmailRequest);
+            selectEmailPst.setInt(1, winningTicket.getTicketId().getId());
+            ResultSet emailRs = selectEmailPst.executeQuery();
+            String email = "";
+            if (emailRs.next()) {
+                email = emailRs.getString("email");
+            }
+           
+            System.out.println("The winning ticket belongs to user with e-mail: " + email);
+            mail.sendMail(email);
+            
+        }
+    }
+    
+    return true;
+}
 
     
 }
