@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/hedi/Desktop/JAVA/FINALESS/INTEGRATION.VOL3.1/INTEGRATION.VOL3/LEGENDS-PIDEV/src/GUI/LoginController.java</file>
+            <file>file:/C:/Users/hedi/Desktop/JAVA/term/JAVA/src/GUI/ForgottenPassController.java</file>
+            <file>file:/C:/Users/hedi/Desktop/JAVA/term/JAVA/src/GUI/LoginController.java</file>
+            <file>file:/C:/Users/hedi/Desktop/JAVA/term/JAVA/src/GUI/FrontClientController.java</file>
+            <file>file:/C:/Users/hedi/Desktop/JAVA/term/JAVA/src/Services/Servicefreelancer.java</file>
+            <file>file:/C:/Users/hedi/Desktop/JAVA/term/JAVA/src/Services/ServiceUser.java</file>
+            <file>file:/C:/Users/hedi/Desktop/JAVA/term/JAVA/src/Services/IServices.java</file>
+            <file>file:/C:/Users/hedi/Desktop/JAVA/term/JAVA/src/GUI/AddAdminController.java</file>
+            <file>file:/C:/Users/hedi/Desktop/JAVA/term/JAVA/src/GUI/FreelancerListController.java</file>
+            <file>file:/C:/Users/hedi/Desktop/JAVA/term/JAVA/src/Services/Serviceclient.java</file>
+            <file>file:/C:/Users/hedi/Desktop/JAVA/term/JAVA/src/GUI/AdminListController.java</file>
+            <file>file:/C:/Users/hedi/Desktop/JAVA/term/JAVA/src/Entities/client.java</file>
+            <file>file:/C:/Users/hedi/Desktop/JAVA/term/JAVA/src/Entities/SingleUser.java</file>
+            <file>file:/C:/Users/hedi/Desktop/JAVA/term/JAVA/src/Entities/SingleMail.java</file>
+            <file>file:/C:/Users/hedi/Desktop/JAVA/term/JAVA/src/Entities/CurrentUser.java</file>
+            <file>file:/C:/Users/hedi/Desktop/JAVA/term/JAVA/src/Entities/Globals.java</file>
+            <file>file:/C:/Users/hedi/Desktop/JAVA/term/JAVA/src/Entities/User.java</file>
+            <file>file:/C:/Users/hedi/Desktop/JAVA/term/JAVA/src/GUI/AddFreelancerController.java</file>
+            <file>file:/C:/Users/hedi/Desktop/JAVA/term/JAVA/src/GUI/AdminListtController.java</file>
+            <file>file:/C:/Users/hedi/Desktop/JAVA/term/JAVA/src/GUI/AdminPanelController.java</file>
         </group>
     </open-files>
 </project-private>
