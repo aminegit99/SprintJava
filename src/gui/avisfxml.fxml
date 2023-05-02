@@ -25,8 +25,8 @@
             </GridPane>
          </content>
       </ScrollPane>
-      <TextField fx:id="avis_sai" layoutX="788.0" layoutY="40.0" prefHeight="26.0" prefWidth="127.0" />
-      <Button layoutX="819.0" layoutY="100.0" mnemonicParsing="false" onAction="#ajouter_avis" text="Button" />
-      <Text fx:id="id_event" layoutX="819.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="text" />
+      <TextField fx:id="avis_sai" layoutX="788.0" layoutY="27.0" prefHeight="26.0" prefWidth="127.0" />
+      <Button layoutX="788.0" layoutY="76.0" mnemonicParsing="false" onAction="#ajouter_avis" text="ajouter Avis" />
+      <Text fx:id="id_event" layoutX="881.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="text" visible="false" />
    </children>
 </AnchorPane>

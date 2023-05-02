@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package gui;
+import com.google.zxing.WriterException;
+import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
 import entities.Evenement;
 import java.io.IOException;
 import java.net.URL;
@@ -43,6 +45,8 @@ Evenementservice es = new Evenementservice();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
                         try {
+                            es.ticketGagnate();
+                            
             List<Evenement> evenements = es.getAll();
             int row = 0;
             int column = 0;
@@ -53,7 +57,11 @@ Evenementservice es = new Evenementservice();
                
                 //passage de parametres
                 EventfrontController controller = loader.getController();
-                controller.setEvenement(evenements.get(i));
+                                try {
+                                    controller.setEvenement(evenements.get(i));
+                                } catch (WriterException ex) {
+                                    Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
+                                }
               //  controller.setIdevent(evenements.get(i).getId_event());
                 grid_event.add(pane, column, row);
                 column++;
@@ -65,6 +73,10 @@ Evenementservice es = new Evenementservice();
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         } catch (SQLException ex) {
+        Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (MessagingException ex) {
+        Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (javax.mail.MessagingException ex) {
         Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
     }
     }    
@@ -92,7 +104,11 @@ Evenementservice es = new Evenementservice();
                
                 //passage de parametres
                 EventfrontController controller = loader.getController();
-                controller.setEvenement(evenements.get(i));
+                try {
+                    controller.setEvenement(evenements.get(i));
+                } catch (WriterException ex) {
+                    Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
+                }
               //  controller.setIdevent(evenements.get(i).getId_event());
                 grid_event.add(pane, column, row);
                 column++;
@@ -126,7 +142,11 @@ Evenementservice es = new Evenementservice();
                
                 //passage de parametres
                 EventfrontController controller = loader.getController();
-                controller.setEvenement(evenements.get(i));
+                try {
+                    controller.setEvenement(evenements.get(i));
+                } catch (WriterException ex) {
+                    Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
+                }
               //  controller.setIdevent(evenements.get(i).getId_event());
                 grid_event.add(pane, column, row);
                 column++;

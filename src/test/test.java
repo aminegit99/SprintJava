@@ -18,6 +18,7 @@ import services.Avisservice;
 import services.Evenementservice;
 import services.Ticketservice;
 import utils.MyDB;
+import utils.SmsAPI;
 
 /**
  *
@@ -63,7 +64,8 @@ public class test {
 //System.out.println(avis.getAvisList(71));
 
 es.ticketGagnate();
-mail.sendMail("boulares.montassar@esprit.tn");
+mail.envoyer("hazem.kechiched@esprit.tn", 0);
+SmsAPI.send("+21699195169", "votre achat de billet a été effectué avec succès");
 
 //avis.ajouteAvis(avi);
 

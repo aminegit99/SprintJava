@@ -8,10 +8,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="167.0" prefWidth="450.0" style="-fx-background-color: #c6ebd5;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.EventfrontController">
+<AnchorPane id="AnchorPane" prefHeight="202.0" prefWidth="459.0" style="-fx-background-color: #c6ebd5;" styleClass="hazem" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.EventfrontController">
    <children>
       <ImageView fx:id="image_event" fitHeight="143.0" fitWidth="182.0" layoutX="18.0" layoutY="15.0" onMouseClicked="#got_detailse" pickOnBounds="true" preserveRatio="true" />
-      <Text fx:id="id_event" layoutX="14.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="59.71813201904297">
+      <Text fx:id="id_event" layoutX="18.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="59.71813201904297">
          <font>
             <Font size="25.0" />
          </font>
@@ -37,7 +37,9 @@
       <Separator layoutX="190.0" layoutY="86.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
       <Separator layoutX="440.0" layoutY="9.0" orientation="VERTICAL" prefHeight="170.0" prefWidth="2.0" style="-fx-background-color: #000000;" />
       <Separator layoutX="9.0" layoutY="1.0" orientation="VERTICAL" prefHeight="170.0" prefWidth="0.0" style="-fx-background-color: #000000;" />
-      <Button layoutX="206.0" layoutY="175.0" mnemonicParsing="false" onAction="#ajouter_avis" prefHeight="26.0" prefWidth="172.0" text="show avis" />
+      <Button layoutX="12.0" layoutY="182.0" mnemonicParsing="false" onAction="#ajouter_avis" prefHeight="26.0" prefWidth="172.0" text="Avis" />
+      <ImageView fx:id="qrcodee" fitHeight="44.0" fitWidth="129.0" layoutX="307.0" layoutY="171.0" pickOnBounds="true" preserveRatio="true" />
+      
    </children>
    <padding>
       <Insets bottom="5.0" left="5.0" right="5.0" />

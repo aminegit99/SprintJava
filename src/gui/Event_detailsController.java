@@ -113,9 +113,10 @@ Evenementservice es = new Evenementservice();
                      
          nb_event.setText(String.valueOf(b));
           sai_tickts_quantite.setText("");
-        SmsAPI.send("+21699195169", "votre achat de billet a été effectué avec succès");}
+        SmsAPI.send("+21628240023", "votre achat de billet a été effectué avec succès");}
 
         
     }
+    
     
 }

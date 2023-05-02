@@ -18,14 +18,14 @@ public class SmsAPI {
      * @param args the command line arguments
      */
     public static void send(String numero, String contenu) {
-                final String AUTH_TOKEN = "cbb6e7e4f68af41de53768405d74b37e";
-        final String ACCOUNT_SID = "AC8c4f03ca546dc29f21f0c1b0fde3ce2f";
+                final String AUTH_TOKEN = "3406691ff738267fa60dfec286502c9a";
+        final String ACCOUNT_SID = "AC19c18dbfaf43a218601a2024b983f004";
 
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
         Message message = Message.creator(
                 new PhoneNumber(numero), // TO
-                new PhoneNumber("+15672922043"), // FROM
+                new PhoneNumber("+16086368058"), // FROM
                 contenu
         ).create();
 

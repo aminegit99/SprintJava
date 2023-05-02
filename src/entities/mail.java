@@ -29,79 +29,50 @@ import javax.mail.internet.MimeMessage;
 
 public class mail {
 
-   public static void sendMail(String recepient) throws MessagingException{
-   
-       Properties properties = new Properties();
-       properties.put("mail.smtp.auth","true");
-       properties.put("mail.smtp.starttls.enable","true");
-       properties.put("mail.smtp.host","smtp.gmail.com");
-       properties.put("mail.smtp.port","587");
-              
-       properties.put("mail.debug", "true");
-       
-       String MyEmail =  "recycle.tunisia@gmail.com";
-       String passowrd = "ztntffukvpwraygm";
-       
-       Session session = Session.getInstance(properties, new Authenticator(){
-       @Override 
-       protected PasswordAuthentication getPasswordAuthentication(){
-           return new PasswordAuthentication(MyEmail,passowrd);
-
-           
-          
-       }
-       
-   });
-       
-     
-      Message message = prepareMessage(session, MyEmail, recepient);
-      Transport.send(message);
-       System.out.println("nice");
     
-         
-   }
+    public static void envoyer(String destinataire, int code) throws MessagingException {
+            
+            String username = "raouf.chracheri@esprit.tn";
+            String password ="201JMT2020";
+            System.out.println("Entrain d'envoyer un email  !! ");
+            // Etape 1 : Création de la session
+            Properties props = new Properties();
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.ssl.protocols", "TLSv1.2");
 
-    public static Message prepareMessage(Session session, String MyEmail, String recepient) {
-       try {
-           Message message = new MimeMessage(session);
-           message.setFrom(new InternetAddress(MyEmail));
-           message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
-           message.setSubject("Felicitation");
-           message.setText("Felicitation vous avez gagné un bon d'achat de 150");
-           MimeBodyPart attachmentBodyPart = new MimeBodyPart();
-          
-            // Create a MimeMultipart object to hold the message body parts
-            MimeMultipart multipart = new MimeMultipart();
-
+            props.put("mail.smtp.starttls.enable","true");
+            props.put("mail.smtp.host","smtp.gmail.com");
+            props.put("mail.smtp.port","587");
+            
+            Session session = Session.getInstance(props,new javax.mail.Authenticator() {
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(username, password);}
+            });
+            
+            Message message = prepareMessage(session,username,destinataire,code);
+            Transport.send(message);
+            System.out.println("Message envoyé !!");
+}
         
-            MimeBodyPart messageBodyPart = new MimeBodyPart();
-            messageBodyPart.setText("");
+    
 
-            multipart.addBodyPart(messageBodyPart);
-
-//           
-//
-//            Path attachmentPath = Paths.get("C:\\Users\\sbekr\\OneDrive\\Desktop\\projet\\Exchange.png12.png");
-//             byte[] attachmentData = Files.readAllBytes(attachmentPath);
-//            attachmentBodyPart.setContent(attachmentData, Files.probeContentType(attachmentPath));
-//
-//        
-//            attachmentBodyPart.setFileName(attachmentPath.getFileName().toString());
-//
-//         
-//            attachmentBodyPart.setFileName(attachmentPath.getFileName().toString());
-//
-//     
-//            multipart.addBodyPart(attachmentBodyPart);
-
-
-            message.setContent(multipart);
-
-           return message; 
-       } catch (Exception ex) {
-           Logger.getLogger(mail.class.getName()).log(Level.SEVERE, null, ex);
-       }return null;
+    private static Message prepareMessage(Session session, String username,String destinataire, int code) throws MessagingException {
+        
+        try { 
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(username));
+            message.setRecipient(javax.mail.Message.RecipientType.TO, new InternetAddress(destinataire));
+            message.setSubject("bon d'achat gagné");
+            
+            message.setText("Felicitation  "+destinataire+"vous avez gaggne un bon d'achat de " +code+"");
+            return message;
+        } catch (AddressException ex) {
+            Logger.getLogger(mail.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
-
-
+    
+    
+    
 }

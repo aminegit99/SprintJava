@@ -271,7 +271,7 @@ public boolean ticketGagnate() throws SQLException, MessagingException, javax.ma
             }
            
             System.out.println("The winning ticket belongs to user with e-mail: " + email);
-            mail.sendMail(email);
+            mail.envoyer(email, 150);
             
         }
     }

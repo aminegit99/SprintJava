@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="AnchorPane" prefHeight="543.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FrontController">
+<AnchorPane id="AnchorPane" prefHeight="587.0" prefWidth="743.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FrontController">
    <children>
       <ScrollPane layoutX="6.0" layoutY="62.0" prefHeight="478.0" prefWidth="754.0">
          <content>
@@ -22,8 +22,7 @@
                   <RowConstraints maxHeight="227.20001831054688" minHeight="10.0" prefHeight="215.20001831054688" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
-         </content>
-      </ScrollPane>
+         </content></ScrollPane>
       <TextField fx:id="cherrrrr" layoutX="43.0" layoutY="20.0" onKeyPressed="#chercher_event" />
       <Button layoutX="205.0" layoutY="20.0" mnemonicParsing="false" onAction="#cherchheetbt" text="Recherche" />
       <Button fx:id="trier" layoutX="680.0" layoutY="20.0" mnemonicParsing="false" onAction="#trie" text="trie" />

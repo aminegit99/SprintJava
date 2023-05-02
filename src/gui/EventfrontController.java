@@ -5,10 +5,20 @@
  */
 package gui;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
+import com.google.zxing.qrcode.encoder.QRCode;
+
+import com.sun.javafx.iio.ImageStorage.ImageType;
 import entities.Evenement;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -44,6 +54,8 @@ public class EventfrontController implements Initializable {
     @FXML
     private Text desc_event;
 Evenementservice es = new Evenementservice();
+    @FXML
+    private ImageView qrcodee;
     /**
      * Initializes the controller class.
      */
@@ -52,7 +64,7 @@ Evenementservice es = new Evenementservice();
 
         
     }    
-                  public void setEvenement(Evenement e) {
+                  public void setEvenement(Evenement e) throws WriterException {
         
         id_event.setText(String.valueOf(e.getId()));
         
@@ -60,9 +72,29 @@ Evenementservice es = new Evenementservice();
         nom_event.setText(e.getNom());
         prix_event.setText(String.valueOf(e.getPrix()));
          String path = e.getImageName();
-               File file=new File(path);
+              
+                            File file = new File("C:\\\\Users\\\\hazem_xsx7382\\\\Documents\\\\GitHub\\\\gestion_recyclage\\\\public\\\\images\\\\" + path );
+
               Image img = new Image(file.toURI().toString());
                 image_event.setImage(img);
+                   String qrCodeText = "Your QR code text here";
+                   // ByteArrayOutputStream out = QRCode.from(qrCodeText).to(ImageType.PNG).stream();
+                   // byte[] byteArray = out.toByteArray();
+                   // Image qrCodeImage = new Image(new ByteArrayInputStream(byteArray));
+    
+    // Set QR code image in ImageView
+  //  qrcodee.setImage(qrCodeImage);
+                //
+             /*   String qrCodeData = "http://127.0.0.1:8000/participation/bot/";
+            String filePath = "codeqrr.png";
+            QRCodeWriter qrCodeWriter = new QRCodeWriter();
+            BitMatrix bitMatrix = qrCodeWriter.encode(qrCodeData, BarcodeFormat.QR_CODE, 300,300);
+            
+            MatrixToImageWriter.writeToPath(bitMatrix, "jpg", Paths.get(filePath));
+            
+           Image  image = new Image(new File(filePath).toURI().toString());
+            qrcodee.setImage(image);*/
+            //
         // TODO
         
     }
